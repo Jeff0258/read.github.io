@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    function dateCount(){
+        // 获取现在的时间
+        var date = new Date();
+        // 2018的第一天
+        var until = new Date('2022-01-01 00:00:00');
+        // 计算时会发生隐式转换，调用valueOf()方法，转化成时间戳的形式
+        var days = (until - date)/1000/3600/24; 
+        // 下面都是简单的数学计算 
+        var day = Math.floor(days);
+        var hours = (days - day)*24;
+        var hour = Math.floor(hours);
+        var minutes = (hours - hour)*60;
+        var minute = Math.floor(minutes);
+        var seconds = (minutes - minute)*60;
+        var second = Math.floor(seconds);
+        var back = '距离2022年还剩下'+day+'天'+hour+'小时'+minute+'分钟'+second+'秒';
+        return back;
+    }
+    setInterval(function(){
+        var text = dateCount();
+        // show是一个节点
+        show.innerText = text;
+},1000)
+    </script>
+</body>
+</html>
